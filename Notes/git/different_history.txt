@@ -1,0 +1,73 @@
+
+issue :- There isn't anything to compare.
+master and main branch are entirely different commit histories.
+
+why :- i was getting this issue cause, when i was creating the remote or upstram repo(on github) at that time i'll commit(like add readme.Md file while making repo)
+    so this commit store in .git that is on remote repo on github
+
+similarly when i do git init on my local machine(in any folder) this also create .git file in the current folder(that's how here 2 different .git that store history of their repo ) and it will store the commit history 
+that are being done on local machine and in this why .git(of remote repo) is different from .git(in the local repo) so github shows master and main branch are entirely different commit histories.
+
+so the idea is to not get this type of issue is to do not commit while making repo. As it won't create .git in remote (repo) and if you have to do work from your machine then do everything from that
+in this way you'l not get any issue like this 
+
+so the solutions for this if it ever happen
+
+1 git rebase -i origin/master
+
+2. "git branch new_branch
+git checkout new_branch
+git merge develop --allow-unrelated-histories"
+
+3. "git checkout [BRANCH]   
+git branch master [BRANCH] -f   
+git checkout master   
+git push origin master -f"
+
+
+Create a PR on GitHub and request to merge your my-new-files-branch-name branch in your my-forked-repo into master.
+
+Note: The "...entirely different commit histories..." error message can also occur in non-forked repos for the same reasons and can be fixed with the same solution above
+
+Terminology
+First, let's get some terminology out of the way...
+
+upstream <= The remote git repo (likely whose master or release branch is in production)
+
+forked-repo <= The remote [experimental git repo] (https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) also known as "origin".
+
+local repo <= The files and directories that you work with on your local workstaion, which you likely got by running a git clone my-forked-repo.git command
+
+local index <= Also known as your local git "stage", i.e., where you stage your files before pushing them to you remote repo.
+
+Github workflow process
+Next, let's talk about the process of getting your changes to the upstream repo:
+
+The process is generally to work on a feature branch and then push said branch, and open a Pull Request, either to your forked-repo's master branch or to the upstream's master branch
+
+
+for entirely different commit histories probelm
+similarly this problem you can face in the case you forked a repo and  pulled your forked repo to work on it locally....
+If then you decide to rewrite the entire application and then decide it's a good idea to deleting all existing files, including the forked-repo's .git directory.
+You add new files and directories to recreate your app and also recreate your .git directory with git init command.
+Now, your application works great with your new files and you want to get it merged into the upstream repo. However, when you push your changes you get that "...entirely different commit histories..." error message
+
+You'll see that your original git commit will be different in your new local directory and if in your remote fork (as well as your upstream). 
+Check this out by running this command in your current directory: git log --reverse master. Then running the following: pushd $(mktemp -d); git clone https://github.com/my-forking-username/my-forked-repo.git; git log --reverse master; popd
+
+You must fix your local .git repo to match your remote my-forked-repo if you want to push your commits and subsequently perform a pull request (in hopes of merging your new updates to the upstream/master branch).
+
+git clone https://github.com/my-forking-username/my-forked-repo.git
+cd my-forked-repo
+git checkout -b my-new-files-branch-name
+# Delete all files and directories except for the .git directory
+git add .
+git commit -m'Remove old files'
+# Copy your new files to this my-forked-repo directory
+git add .
+git commit -m'Add new files'
+git push origin my-new-files-branch-name
+
+Create a PR on GitHub and request to merge your my-new-files-branch-name branch in your my-forked-repo into master.
+
+Note: The "...entirely different commit histories..." error message can also occur in non-forked repos for the same reasons and can be fixed with the same solution above

@@ -19,7 +19,7 @@ def add(num1, num2):
 # print(add(2, 5))
 # hello("dude") 
 
-   
+
 
 #    nested funcation calls
 # print(round(abs(float(input("Enter a whole positive number: ")))))
@@ -49,3 +49,36 @@ def hello(**kwargs):
         print(value, end=" ")
 
 hello(title="Mr.", first="Bro", middle="Dude", last="code")
+
+# Higher Order Function = a function taht either :
+                        # 1. accepets a function as an argument
+                        #   or 
+                        # 2. return a function
+                     #  ( in python function are also trated as objects )
+
+# First-Class Objects: In Python, functions are first-class objects12. This means that functions in Python have properties just like any other object (like strings, lists, dictionaries, etc.).
+#  They can be assigned to variables, stored in data structures, passed as arguments to other functions, and even returned as values from other functions312
+
+def loud(text):
+    return text.upper()
+
+def quiet(text):
+    return text.lower()
+
+# 1. a function that accepet func as argument
+def hello(func):
+    text = func("Hello, BRO")
+    print(text)
+
+hello(loud)
+hello(quiet)
+
+# 2.  a func that return  a function
+
+def divisor(x):
+    def divided(y):
+        return y/x
+    return divided
+
+divide = divisor(2)
+print(divide(10))
