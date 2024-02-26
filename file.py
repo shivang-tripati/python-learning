@@ -56,7 +56,7 @@ import shutil
 tempPath = "./file/temp.txt"
 empty_folder_path ="./empty_folder"
 try:
-    # os.remove(empty_folder_path)   # delete a file
+    os.remove(empty_folder_path)   # delete a file
     # os.rmdir(empty_folder_path)    # delete an empty directory
     # shutil.rmtree(empty_folder_path)  # delete a directory containing files
     
