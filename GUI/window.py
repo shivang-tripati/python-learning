@@ -1,10 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 
 
 count = 0
 def click():
     global count
     count += 1
+    # messagebox.showinfo(title='message box', message=f"You clicked the button {count} times") 
     print(f"You clicked the button {count} times")
 
 def submit():
@@ -17,6 +19,10 @@ def delete():
 
 def backspace():
     entry.delete(len(entry.get()) - 1, END)
+
+def submit2():
+    input = text.get("1.0". END) #to get text input in text widget 
+    print(input)
 
 
 window = Tk() #instantiate an insatance of a window
@@ -78,5 +84,13 @@ delete_button.pack(side=RIGHT)
 
 backspace_button = Button(window, text="backspace", command=backspace)
 backspace_button.pack(side=RIGHT)
+
+# text wideget = enter multiple lines of code
+text = Text(window, bg="light yellow", padx=20, pady=20,
+            font=("Ink Free", 18), width=20, height=8)
+text.pack()
+
+button = Button(window, text='submit', command=submit2)
+button.pack()
 
 window.mainloop() #place window on computer screen, listen for events
