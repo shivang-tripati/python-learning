@@ -1,4 +1,4 @@
-# str.format() = potional metjod that give user more controal when displaying output
+# str.format() = potional method that give user more controal when displaying output
 
 animal = "cow"
 item = "moon"
