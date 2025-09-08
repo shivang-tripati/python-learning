@@ -1,0 +1,8 @@
+Asynchronous code allows a program to indicate that at some point, it will need to wait for something else to finish elsewhere.
+During this waiting period, the program can perform other tasks, making it more efficient.
+Common scenarios for waiting include I/O operations (e.g., reading/writing files, network communication, database queries, etc.).
+Python’s Asynchronous Features:
+Python introduced support for asynchronous code using coroutines, which utilize the async and await syntax.
+Key terms:
+Coroutines: Functions that can pause execution and resume later.
+async and await: Keywords used to define and await asynchronous operations.

@@ -9,7 +9,7 @@ similarly when i do git init on my local machine(in any folder) this also create
 that are being done on local machine and in this why .git(of remote repo) is different from .git(in the local repo) so github shows master and main branch are entirely different commit histories.
 
 so the idea is to not get this type of issue is to do not commit while making repo. As it won't create .git in remote (repo) and if you have to do work from your machine then do everything from that
-in this way you'l not get any issue like this 
+in this way you'll not get any issue like this 
 
 so the solutions for this if it ever happen
 

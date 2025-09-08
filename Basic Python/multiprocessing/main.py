@@ -21,20 +21,20 @@ def main():
     print("start at: ",start_time)
 
     #  counting 1 billion time
-    a = Process(target=counter, args=(250000000,))
-    b = Process(target=counter, args=(250000000,))
-    c = Process(target=counter, args=(250000000,))
-    d = Process(target=counter, args=(250000000,))
+    a = Process(target=counter, args=(1000000000,))
+    # b = Process(target=counter, args=(500000000,))
+    # c = Process(target=counter, args=(250000000,))
+    # d = Process(target=counter, args=(250000000,))
     a.start()
-    b.start()
-    c.start()
-    d.start()
+    # b.start()
+    # c.start()
+    # d.start()
 
     # process synchronization
     a.join()
-    b.join()
-    c.join()
-    d.join()
+    # b.join()
+    # c.join()
+    # d.join()
 
     end_time = time.perf_counter()
     print("end at: ", end_time, "seconds")
